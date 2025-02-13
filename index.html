@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление с 14 февраля</title>
+</head>
+<body>
+
+    <div id="app">
+        <div id="envelope">
+            <img src="envelope.jpg" alt="Конверт" id="envelopeImage" style="display: block;">
+            <button onclick="showLetter()">Открыть</button>
+        </div>
+
+        <div id="letter" style="display: none;">
+            <img src="letter.jpg" alt="Письмо">
+            <p>Ты очень важна для меня, поздравляю тебя с Днем Святого Валентина!</p>
+            <button onclick="showValentine()">Получить валентинку</button>
+        </div>
+
+        <div id="valentine" style="display: none;">
+            <img src="valentine.jpg" alt="Валентинка">
+            <p>Тебе пришло приглашение на интернет-свидание!</p>
+            <button onclick="showDate()">Согласиться</button>
+            <button onclick="showSadFace()">Отказаться</button>
+        </div>
+
+        <div id="dateInvite" style="display: none;">
+            <p>Время свидания: 8 вечера по Киеву или 11 по Алматы.</p>
+            <button onclick="chooseMovie()">Выбрать что смотреть</button>
+        </div>
+
+        <div id="movieChoice" style="display: none;">
+            <p id="movieText"></p>
+            <button onclick="restart()">Перезапустить</button>
+        </div>
+
+        <div id="sadFace" style="display: none;">
+            <img src="sadface.png" alt="Грустный смайлик">
+        </div>
+    </div>
+
+    <script>
+        function showLetter() {
+            document.getElementById('envelope').style.display = 'none';
+            document.getElementById('letter').style.display = 'block';
+        }
+
+        function showValentine() {
+            document.getElementById('letter').style.display = 'none';
+            document.getElementById('valentine').style.display = 'block';
+        }
+
+        function showDate() {
+            document.getElementById('valentine').style.display = 'none';
+            document.getElementById('dateInvite').style.display = 'block';
+        }
+
+        function showSadFace() {
+            document.getElementById('valentine').style.display = 'none';
+            document.getElementById('sadFace').style.display = 'block';
+        }
+
+        function chooseMovie() {
+            const movies = ['Фильм 1', 'Фильм 2', 'Фильм 3'];
+            const randomMovie = movies[Math.floor(Math.random() * movies.length)];
+            document.getElementById('movieText').textContent = `Твой фильм: ${randomMovie}`;
+            document.getElementById('movieChoice').style.display = 'block';
+        }
+
+        function restart() {
+            location.reload();
+        }
+    </script>
+
+</body>
+</html>
+
+
